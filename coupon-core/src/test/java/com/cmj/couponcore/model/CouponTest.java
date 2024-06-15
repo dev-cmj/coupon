@@ -138,7 +138,7 @@ class CouponTest {
 
         // when & then
         CouponIssueException exception = assertThrows(CouponIssueException.class, coupon::issue);
-        assertEquals(exception.getErrorCode(), ErrorCode.INVALID_COUPON_ISSUE_QUANTITY);
+        assertEquals(ErrorCode.INVALID_COUPON_ISSUE_QUANTITY, exception.getErrorCode());
     }
 
     @Test
@@ -154,7 +154,7 @@ class CouponTest {
 
         // when & then
         CouponIssueException exception = assertThrows(CouponIssueException.class, coupon::issue);
-        assertEquals(exception.getErrorCode(), ErrorCode.INVALID_COUPON_ISSUE_DATE);
+        assertEquals(ErrorCode.INVALID_COUPON_ISSUE_DATE, exception.getErrorCode());
     }
 
 }
