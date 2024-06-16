@@ -24,10 +24,9 @@ public class CouponIssueService {
     private final CouponIssueRepository couponIssueRepository;
 
     public void issue(long couponId, long userId) {
-        Coupon coupon = couponJpaRepository.findById(couponId).orElseThrow(() -> new CouponIssueException(COUPON_NOT_EXIST, "쿠폰 정책이 존재하지 않습니다. %s".formatted(couponId)));
-        coupon.issue();
-
-        saveCouponIssue(couponId, userId);
+            Coupon coupon = couponJpaRepository.findById(couponId).orElseThrow(() -> new CouponIssueException(COUPON_NOT_EXIST, "쿠폰 정책이 존재하지 않습니다. %s".formatted(couponId)));
+            coupon.issue();
+            saveCouponIssue(couponId, userId);
     }
 
     public CouponIssue saveCouponIssue(long couponId, long userId) {

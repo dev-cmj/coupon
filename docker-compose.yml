@@ -16,18 +16,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      - MYSQL_DATABASE=coupon
-      - MYSQL_USER=/run/secrets/mysql_user
-      - MYSQL_PASSWORD=/run/secrets/mysql_password
-      - MYSQL_ROOT_PASSWORD=/run/secrets/mysql_root_password
-      - TZ=UTC
+      MYSQL_DATABASE : '${MYSQL_DATABASE}'
+      MYSQL_USER : '${MYSQL_USER}'
+      MYSQL_PASSWORD : '${MYSQL_PASSWORD}'
+      MYSQL_ROOT_PASSWORD : '${MYSQL_ROOT_PASSWORD}'
+      TZ : 'UTC'
     volumes:
-      - ./mysql/init:/docker-entrypoint-initdb.d
-
-secrets:
-  mysql_user:
-    external: true
-  mysql_password:
-    external: true
-  mysql_root_password:
-    external: true
+      - ./coupon-core/src/main/resources/sql:/docker-entrypoint-initdb.d
