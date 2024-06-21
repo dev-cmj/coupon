@@ -13,11 +13,11 @@ public class LocalCacheConfiguration {
 
     @Bean
     public CacheManager localCacheManager() {
-        CaffeineCacheManager cacheManager = new CaffeineCacheManager();
-        cacheManager.setCaffeine(Caffeine.newBuilder()
-                .maximumSize(1000)
+        CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
+        caffeineCacheManager.setCaffeine(Caffeine.newBuilder()
                 .expireAfterWrite(Duration.ofSeconds(10))
+                .maximumSize(1000)
         );
-        return cacheManager;
+        return caffeineCacheManager;
     }
 }
